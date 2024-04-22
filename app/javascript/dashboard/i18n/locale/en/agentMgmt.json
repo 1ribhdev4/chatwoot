@@ -90,7 +90,7 @@
       },
       "PASSWORD_RESET": {
         "ADMIN_RESET_BUTTON": "Reset Password",
-        "ADMIN_SUCCESS_MESSAGE": "An email with reset password instructions has been sent to the agent",
+        "ADMIN_SUCCESS_MESSAGE": "An email with Instruções para resetar a senha has been sent to the agent",
         "SUCCESS_MESSAGE": "Agent password reset successfully",
         "ERROR_MESSAGE": "Could not connect to Woot Server, Please try again later"
       }
