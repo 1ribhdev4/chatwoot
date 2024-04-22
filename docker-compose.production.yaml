@@ -2,6 +2,9 @@ version: '3'
 
 services:
   base: &base
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile
     image: chatwoot/chatwoot:latest
     env_file: .env ## Change this file for customized env variables
     volumes:
