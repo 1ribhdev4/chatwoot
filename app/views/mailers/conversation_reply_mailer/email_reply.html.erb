@@ -8,7 +8,7 @@
   <%= ChatwootMarkdownRenderer.new(@message.content).render_message %>
 <% end %>
 
-<% @messages.each do |message| %>
+<% @messages[0...-1].each do |message| %>
   <blockquote>
     <br>
     <tr>
@@ -19,16 +19,16 @@
             <% if message.content_attributes.dig(:email, :from).present? %>
               <div>De: <%= message.content_attributes.dig(:email, :from).join(", ") %></div>
             <% else %>
-              <div>Para: <%= message.sender&.try(:email) %></div>
+              <div>Para: <%= @to %></div>
             <% end %>
 
             <% if message.content_attributes.dig(:email, :subject).present? %>
               <div>Assunto: <%= message.content_attributes.dig(:email, :subject) %></div>
             <% end %>
 
-            <% if message.content_attributes[:to_emails].present? %>
+            <!-- <% if message.content_attributes[:to_emails].present? %>
               <div>Para: <%= message.content_attributes[:to_emails].join(", ") %></div>
-            <% end %>
+            <% end %> -->
             <% if message.content_attributes[:cc_emails].present? %>
               <div>CC: <%= message.content_attributes[:cc_emails].join(", ") %></div>
             <% end %>
