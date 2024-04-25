@@ -15,7 +15,7 @@
 docker-compose.yaml
 
 # Ignore data
-data/
+data/*
 
 # Ignore all logfiles and tempfiles.
 /log/*
