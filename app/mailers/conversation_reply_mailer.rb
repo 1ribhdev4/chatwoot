@@ -33,7 +33,9 @@ class ConversationReplyMailer < ApplicationMailer
     return unless smtp_config_set_or_development?
 
     init_conversation_attributes(message.conversation)
+    @messages = @conversation.messages.chat.select(&:conversation_transcriptable?)
     @message = message
+    @to = @conversation.contact.email
     reply_mail_object = prepare_mail(true)
     message.update(source_id: reply_mail_object.message_id)
   end
