@@ -11,6 +11,12 @@
 /db/*.sqlite3
 /db/*.sqlite3-journal
 
+# Ignore Docker Compose File
+docker-compose.yaml
+
+# Ignore data
+data/*
+
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
