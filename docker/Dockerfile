@@ -29,7 +29,8 @@ RUN apk update && apk add --no-cache \
   yarn \
   git \
   && mkdir -p /var/app \
-  && gem install bundler
+  && gem install bundler \
+  && nano
 
 WORKDIR /app
 

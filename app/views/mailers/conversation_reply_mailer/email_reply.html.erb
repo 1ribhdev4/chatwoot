@@ -1,7 +1,13 @@
 <% if @message.attachments %>
-  <% @message.attachments.each do |attachment| %>
-    Anexo: [<a href="<%= attachment.file_url %>" target="_blank">clique aqui para visualizar</a>]
-  <% end %>
+  <div class="attachments">
+    <% @message.attachments.each do |attachment| %>
+      <div class="attachment">
+        <span>Anexo: 📎  &nbsp; </span>
+        <a href="<%= attachment.file_url %>" target="_blank">clique aqui para visualizar</a>
+	      <span style="color:red"> &nbsp; O 1RIBH não envia links de URL's duvidosas. Verifique sempre se a URL contém "1RIBH.com.br"</span>
+      </div>
+    <% end %>
+  </div>
 <% end %>
 
 <% if @message.content %>
@@ -45,11 +51,17 @@
           <%= ChatwootMarkdownRenderer.new(message.content).render_message %>
         <% end %>
         <% if message.attachments %>
-          <% message.attachments.each do |attachment| %>
-            Anexo [<a href="<%= attachment.file_url %>" _target="blank">Clique aqui para vizualizar</a>]
-          <% end %>
+          <div class="attachments">
+            <% @message.attachments.each do |attachment| %>
+              <div class="attachment">
+                <span>Anexo: 📎  &nbsp; </span>
+                <a href="<%= attachment.file_url %>" target="_blank">clique aqui para visualizar</a>
+              <span style="color:red"> &nbsp; O 1RIBH não envia links de URL's duvidosas. Verifique sempre se a URL contém "1RIBH.com.br"</span>
+          </div>
+            <% end %>
+          </div>
         <% end %>
-        <p style="font-size: 90%; font-size: 90%;color: #899096;margin-top: -8px; margin-bottom: 0px;">
+        <p style="font-size: 90%; color: #899096; margin-top: -8px; margin-bottom: 0px;">
         <% if @inbox.timezone.present? %>
           <%= message.created_at.in_time_zone(@inbox.timezone).strftime('%b %d, %I:%M %p %Z') %>
         <% else %>
@@ -61,3 +73,18 @@
     <br>
   </blockquote>
 <% end %>
+
+<!-- Estilos CSS adicionais -->
+<style>
+  .attachments {
+    margin-top: 10px;
+  }
+  .attachment {
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+  }
+  .attachment i {
+    margin-right: 5px;
+  }
+</style>
